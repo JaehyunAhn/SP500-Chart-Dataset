@@ -197,7 +197,7 @@ If you use this dataset in your research, please cite:
   author={Ahn, Jaehyun},
   year={2025},
   howpublished={\url{https://github.com/JaehyunAhn/SP500-Chart-Dataset}},
-  note={KAIST College of Business}
+  note={Yonsei University}
 }
 ```
 
@@ -213,4 +213,4 @@ This dataset is released under the [Creative Commons Attribution 4.0 Internation
 - Price data sourced from [Yahoo Finance](https://finance.yahoo.com/) via [yfinance](https://github.com/ranaroussi/yfinance)
 - S&P 500 constituents from [Wikipedia](https://en.wikipedia.org/wiki/List_of_S%26P_500_companies)
 - Chart rendering by [mplfinance](https://github.com/matplotlib/mplfinance)
-- Research conducted at KAIST College of Business
+- Research conducted at Yonsei University

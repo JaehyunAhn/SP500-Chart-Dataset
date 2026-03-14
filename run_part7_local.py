@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Part 7: S&P 500 Cross-Sectional Image Pipeline (로컬 실행용)
-2단계: (1) 데이터 순차 다운로드 → pickle 저장  (2) 이미지 병렬 생성
+Part 7: S&P 500 Cross-Sectional Image Pipeline (Local Execution)
+Two phases: (1) Check existing price data pickles  (2) Parallel image generation
 Usage: python3 run_part7_local.py
 """
 
@@ -50,7 +50,7 @@ print(f'Output: {BASE_DIR}')
 # === S&P 500 Constituents ===
 def get_sp500_constituents():
     url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
-    headers = {'User-Agent': 'Mozilla/5.0 (compatible; KAIST-Research/1.0)'}
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; SP500-Chart-Dataset/1.0)'}
     resp = requests.get(url, headers=headers)
     resp.raise_for_status()
     tables = pd.read_html(StringIO(resp.text))
@@ -134,7 +134,7 @@ def temporal_split_samples(samples):
 
 # === Image Generation (for multiprocessing worker) ===
 def generate_images_for_stock_worker(args):
-    """Worker: ticker의 이미지 생성 (pickle에서 데이터 로드)"""
+    """Worker: generate images for a ticker (loads data from pickle)"""
     ticker, samples = args
     matplotlib.use('Agg')
     import mplfinance as mpf

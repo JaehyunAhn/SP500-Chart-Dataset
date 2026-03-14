@@ -1,26 +1,19 @@
 """
-Part 8-1: Additional Experiments (셀 복사-붙여넣기용)
-Part 8 실행 완료 후 아래 셀들을 Part 8 노트북 끝에 추가하세요.
+Part 8-1: Additional Experiments
+Append these cells to Part 8 notebook after Stage 2 completes.
 
-Prerequisites: Part 8의 Cell 1~5가 이미 실행된 상태
+Prerequisites: Part 8 Cells 1-5 already executed
 (sector_tickers, _build_file_label_lists, make_tf_dataset,
- build_vgg16_feature_extractor, eval_predictions, RESULTS_DIR 등 정의 완료)
+ build_vgg16_feature_extractor, eval_predictions, RESULTS_DIR defined)
 """
 
 # =====================================================================
-# CELL A: 3-Class & Binary Classification 함수 정의
+# CELL A: 3-Class & Binary Classification Function Definitions
 # =====================================================================
 
-# --- 3-class 매핑: down(0,1,2) → 0, neutral 없음, up(3,4,5) → 2
-# 기존 6-class에서 ±1% 제외이므로 neutral은 이미 없음
-# down_3plus(0), down_2_3(1), down_1_2(2) → 0 (down)
-# up_1_2(3), up_2_3(4), up_3plus(5) → 1 (up)
-# → 사실상 binary (down/up)
-
-# 진짜 3-class를 하려면 원본 수익률에서 neutral 구간을 포함해야 함
-# 여기서는 두 가지를 모두 테스트:
-#   (1) Binary: 6-class → down(0)/up(1)
-#   (2) 3-class with label smoothing on 6-class
+# Binary mapping: 6-class → down(0)/up(1)
+# 3-class mapping: strong_down(0) / mild(1) / strong_up(2)
+# Also tests label smoothing on original 6-class
 
 CLASS_NAMES_BINARY = ['down', 'up']
 CLASS_NAMES_3 = ['strong_down', 'mild', 'strong_up']
