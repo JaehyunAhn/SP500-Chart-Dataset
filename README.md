@@ -16,7 +16,7 @@ A large-scale candlestick chart image dataset for financial image classification
 
 ## Dataset Access
 
-- **Images + Metadata**: [HuggingFace Datasets](https://huggingface.co/datasets/JaehyunAhn/SP500-Chart-Dataset)
+- **Images + Metadata**: [HuggingFace Datasets](https://huggingface.co/datasets/sogosonnet/SP500-Chart-Dataset)
 - **Code + Documentation**: This repository
 
 ## Chart Specification
