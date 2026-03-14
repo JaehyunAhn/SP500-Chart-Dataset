@@ -1,0 +1,19 @@
+# Data files (hosted on HuggingFace)
+images/
+metadata/
+price_data/
+*.pkl
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
