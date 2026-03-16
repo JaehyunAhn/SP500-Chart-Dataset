@@ -1,8 +1,10 @@
-# SP500-Chart-Dataset
+# Chart-Pattern-Dataset
 
-A large-scale candlestick chart image dataset for financial image classification research, covering 501 S&P 500 constituent stocks from 2010 to 2025.
+A large-scale candlestick chart image dataset for financial image classification research, covering S&P 500 stocks and major cryptocurrencies.
 
 ## Overview
+
+### S&P 500
 
 | Item | Value |
 |------|-------|
@@ -11,12 +13,24 @@ A large-scale candlestick chart image dataset for financial image classification
 | **Period** | 2010-01 – 2025-03 |
 | **Image Size** | ~480×480 px (4×4 inch, 120 dpi) |
 | **Chart Type** | Candlestick (OHLCV) with technical indicators |
-| **Labels** | 6-class forward return classification |
+| **Labels** | 6-class forward return (±1%/±2%/±3%) |
 | **Sectors** | 11 GICS sectors |
+
+### Cryptocurrency
+
+| Item | Value |
+|------|-------|
+| **Tickers** | 14 (BTC, ETH, BNB, XRP, ADA, DOGE, LTC, LINK, XLM, TRX, ETC, XMR, NEO, EOS) |
+| **Total Images** | ~29,000 |
+| **Period** | 2017 – 2025 |
+| **Image Size** | ~480×480 px (4×4 inch, 120 dpi) |
+| **Chart Type** | Candlestick (OHLCV) with technical indicators (same as S&P 500) |
+| **Labels** | 6-class forward return (±3%/±5%/±7%, adjusted for crypto volatility) |
 
 ## Dataset Access
 
-- **Images + Metadata**: [HuggingFace Datasets](https://huggingface.co/datasets/sogosonnet/SP500-Chart-Dataset)
+- **S&P 500 Images + Metadata**: [HuggingFace Datasets](https://huggingface.co/datasets/sogosonnet/SP500-Chart-Dataset)
+- **Cryptocurrency Images**: Available in [GitHub Releases](https://github.com/JaehyunAhn/SP500-Chart-Dataset/releases) (`crypto_images.zip`)
 - **Code + Documentation**: This repository
 
 ## Chart Specification
@@ -47,6 +61,8 @@ Labels are based on the **5-day forward return** after the chart window:
 
 $$r = \frac{P_{t+5} - P_t}{P_t} \times 100\%$$
 
+### S&P 500 Labels
+
 | Label | Return Range | Description |
 |-------|-------------|-------------|
 | `down_3plus` | r < −3% | Strong decline |
@@ -58,7 +74,24 @@ $$r = \frac{P_{t+5} - P_t}{P_t} \times 100\%$$
 
 > **Note:** Returns in the range [−1%, +1%] are excluded as ambiguous (flat movements).
 
+### Cryptocurrency Labels
+
+Thresholds are adjusted for higher crypto volatility:
+
+| Label | Return Range | Description |
+|-------|-------------|-------------|
+| `down_7plus` | r < −7% | Strong decline |
+| `down_5_7` | −7% ≤ r < −5% | Moderate decline |
+| `down_3_5` | −5% ≤ r < −3% | Mild decline |
+| `up_3_5` | 3% < r ≤ 5% | Mild increase |
+| `up_5_7` | 5% < r ≤ 7% | Moderate increase |
+| `up_7plus` | r > 7% | Strong increase |
+
+> **Note:** Returns in the range [−3%, +3%] are excluded as ambiguous for crypto.
+
 ## Directory Structure
+
+### S&P 500
 
 ```
 images/
@@ -80,6 +113,28 @@ metadata/
 ├── pipeline_summary.json      # Dataset statistics
 ├── samples_{TICKER}.json      # Per-stock sample metadata
 └── progress.json              # Generation progress log
+```
+
+### Cryptocurrency
+
+```
+crypto_images/
+├── BTC-USD/
+│   ├── up_7plus/
+│   │   ├── BTC-USD_120_20200515.png
+│   │   └── ...
+│   ├── up_5_7/
+│   ├── up_3_5/
+│   ├── down_3_5/
+│   ├── down_5_7/
+│   └── down_7plus/
+├── ETH-USD/
+│   └── ...
+└── ... (14 tickers)
+
+crypto_metadata/
+├── samples_{TICKER}.json      # Per-ticker sample metadata
+└── crypto_summary.json        # Dataset statistics
 ```
 
 ### File Naming Convention
@@ -133,6 +188,12 @@ metadata/
 
 For reproducible train/test evaluation, we recommend:
 
+### S&P 500
+- **Train**: Samples with `end_date` < 2022-12-21
+- **Test**: Samples with `end_date` >= 2023-01-01
+- **Embargo**: 10 calendar days between train and test to prevent information leakage
+
+### Cryptocurrency
 - **Train**: Samples with `end_date` < 2022-12-21
 - **Test**: Samples with `end_date` >= 2023-01-01
 - **Embargo**: 10 calendar days between train and test to prevent information leakage
@@ -183,9 +244,12 @@ The dataset was generated using the scripts in this repository:
 
 | File | Description |
 |------|-------------|
-| `Part7_Data_Image_Pipeline.ipynb` | Price data download (Colab + Yahoo Finance) |
+| `Part7_Data_Image_Pipeline.ipynb` | S&P 500 price data download (Colab + Yahoo Finance) |
 | `run_part7_local.py` | Parallel image generation (local, multiprocessing) |
 | `Part8_CrossSectional_Analysis.ipynb` | Cross-sectional sector analysis experiments |
+| `Part9_ViT_Experiment.ipynb` | ViT-B/16 cross-sectional experiments |
+| `Part10_Numerical_Baseline.ipynb` | Numerical feature baseline (LR, MLP, LightGBM) |
+| `Part11_Crypto_CrossAsset.ipynb` | Cryptocurrency cross-asset generalization experiments |
 
 ## Citation
 
@@ -193,7 +257,7 @@ If you use this dataset in your research, please cite:
 
 ```bibtex
 @misc{sp500chart2025,
-  title={SP500-Chart-Dataset: A Large-Scale Candlestick Chart Image Dataset for Cross-Sectional Financial Image Classification},
+  title={SP500-Chart-Dataset: A Large-Scale Candlestick Chart Image Dataset for Financial Image Classification},
   author={Ahn, Jaehyun},
   year={2025},
   howpublished={\url{https://github.com/JaehyunAhn/SP500-Chart-Dataset}},

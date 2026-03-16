@@ -1,0 +1,217 @@
+{
+  "BTC-USD": {
+    "status": "ok",
+    "n_train": 1720,
+    "n_test": 576,
+    "vgg16": {
+      "acc": 16.49,
+      "dir_acc": 51.74,
+      "f1_macro": 13.6,
+      "n_pred_classes": 6,
+      "majority_baseline": 25.52,
+      "epochs_run": 13,
+      "train_time_sec": 98.5
+    }
+  },
+  "ETH-USD": {
+    "status": "ok",
+    "n_train": 1237,
+    "n_test": 671,
+    "vgg16": {
+      "acc": 25.48,
+      "dir_acc": 51.86,
+      "f1_macro": 11.21,
+      "n_pred_classes": 4,
+      "majority_baseline": 27.72,
+      "epochs_run": 8,
+      "train_time_sec": 69.7
+    }
+  },
+  "BNB-USD": {
+    "status": "ok",
+    "n_train": 1249,
+    "n_test": 605,
+    "vgg16": {
+      "acc": 19.01,
+      "dir_acc": 55.04,
+      "f1_macro": 11.11,
+      "n_pred_classes": 3,
+      "majority_baseline": 21.98,
+      "epochs_run": 7,
+      "train_time_sec": 70.1
+    }
+  },
+  "XRP-USD": {
+    "status": "ok",
+    "n_train": 1168,
+    "n_test": 711,
+    "vgg16": {
+      "acc": 21.66,
+      "dir_acc": 52.32,
+      "f1_macro": 13.15,
+      "n_pred_classes": 5,
+      "majority_baseline": 25.88,
+      "epochs_run": 7,
+      "train_time_sec": 60.9
+    }
+  },
+  "ADA-USD": {
+    "status": "ok",
+    "n_train": 1285,
+    "n_test": 797,
+    "vgg16": {
+      "acc": 30.61,
+      "dir_acc": 56.46,
+      "f1_macro": 11.79,
+      "n_pred_classes": 2,
+      "majority_baseline": 28.98,
+      "epochs_run": 8,
+      "train_time_sec": 39.4
+    }
+  },
+  "DOGE-USD": {
+    "status": "ok",
+    "n_train": 1162,
+    "n_test": 788,
+    "vgg16": {
+      "acc": 18.78,
+      "dir_acc": 52.54,
+      "f1_macro": 13.84,
+      "n_pred_classes": 6,
+      "majority_baseline": 29.31,
+      "epochs_run": 16,
+      "train_time_sec": 72.5
+    }
+  },
+  "LTC-USD": {
+    "status": "ok",
+    "n_train": 1871,
+    "n_test": 706,
+    "vgg16": {
+      "acc": 17.0,
+      "dir_acc": 51.42,
+      "f1_macro": 5.65,
+      "n_pred_classes": 3,
+      "majority_baseline": 24.79,
+      "epochs_run": 6,
+      "train_time_sec": 61.5
+    }
+  },
+  "LINK-USD": {
+    "status": "ok",
+    "n_train": 1371,
+    "n_test": 810,
+    "vgg16": {
+      "acc": 25.31,
+      "dir_acc": 50.74,
+      "f1_macro": 9.26,
+      "n_pred_classes": 2,
+      "majority_baseline": 31.73,
+      "epochs_run": 6,
+      "train_time_sec": 53.6
+    }
+  },
+  "XLM-USD": {
+    "status": "ok",
+    "n_train": 1242,
+    "n_test": 730,
+    "vgg16": {
+      "acc": 13.97,
+      "dir_acc": 50.82,
+      "f1_macro": 6.03,
+      "n_pred_classes": 4,
+      "majority_baseline": 23.01,
+      "epochs_run": 9,
+      "train_time_sec": 71.1
+    }
+  },
+  "TRX-USD": {
+    "status": "ok",
+    "n_train": 1184,
+    "n_test": 492,
+    "vgg16": {
+      "acc": 19.11,
+      "dir_acc": 39.63,
+      "f1_macro": 10.81,
+      "n_pred_classes": 4,
+      "majority_baseline": 31.3,
+      "epochs_run": 11,
+      "train_time_sec": 70.0
+    }
+  },
+  "ETC-USD": {
+    "status": "ok",
+    "n_train": 1222,
+    "n_test": 752,
+    "vgg16": {
+      "acc": 25.13,
+      "dir_acc": 46.81,
+      "f1_macro": 7.01,
+      "n_pred_classes": 2,
+      "majority_baseline": 25.8,
+      "epochs_run": 7,
+      "train_time_sec": 53.1
+    }
+  },
+  "XMR-USD": {
+    "status": "ok",
+    "n_train": 1243,
+    "n_test": 615,
+    "vgg16": {
+      "acc": 19.84,
+      "dir_acc": 43.9,
+      "f1_macro": 12.05,
+      "n_pred_classes": 3,
+      "majority_baseline": 22.28,
+      "epochs_run": 7,
+      "train_time_sec": 43.3
+    }
+  },
+  "NEO-USD": {
+    "status": "ok",
+    "n_train": 1328,
+    "n_test": 804,
+    "vgg16": {
+      "acc": 17.66,
+      "dir_acc": 47.14,
+      "f1_macro": 10.31,
+      "n_pred_classes": 3,
+      "majority_baseline": 29.98,
+      "epochs_run": 6,
+      "train_time_sec": 56.4
+    }
+  },
+  "EOS-USD": {
+    "status": "ok",
+    "n_train": 1267,
+    "n_test": 796,
+    "vgg16": {
+      "acc": 25.0,
+      "dir_acc": 53.77,
+      "f1_macro": 11.78,
+      "n_pred_classes": 5,
+      "majority_baseline": 30.28,
+      "epochs_run": 7,
+      "train_time_sec": 64.8
+    }
+  },
+  "IOTA-USD": {
+    "status": "insufficient_data",
+    "n_train": 0,
+    "n_test": 550
+  },
+  "pooled": {
+    "status": "ok",
+    "n_train": 18549,
+    "n_test": 10403,
+    "vgg16": {
+      "acc": 22.5,
+      "dir_acc": 51.61,
+      "f1_macro": 16.26,
+      "n_pred_classes": 6,
+      "majority_baseline": 25.51,
+      "epochs_run": 18,
+      "train_time_sec": 727.6
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "BTC-USD": {
+    "status": "ok",
+    "n_train": 1720,
+    "n_test": 576,
+    "lightgbm": {
+      "acc": 20.14,
+      "dir_acc": 55.38,
+      "f1_macro": 14.71,
+      "n_pred_classes": 6,
+      "majority_baseline": 25.52,
+      "train_time_sec": 4.1
+    }
+  },
+  "ETH-USD": {
+    "status": "ok",
+    "n_train": 1237,
+    "n_test": 671,
+    "lightgbm": {
+      "acc": 21.01,
+      "dir_acc": 49.03,
+      "f1_macro": 16.06,
+      "n_pred_classes": 6,
+      "majority_baseline": 27.72,
+      "train_time_sec": 3.5
+    }
+  },
+  "BNB-USD": {
+    "status": "ok",
+    "n_train": 1249,
+    "n_test": 605,
+    "lightgbm": {
+      "acc": 16.36,
+      "dir_acc": 46.28,
+      "f1_macro": 11.34,
+      "n_pred_classes": 6,
+      "majority_baseline": 21.98,
+      "train_time_sec": 3.2
+    }
+  },
+  "XRP-USD": {
+    "status": "ok",
+    "n_train": 1168,
+    "n_test": 711,
+    "lightgbm": {
+      "acc": 21.94,
+      "dir_acc": 47.96,
+      "f1_macro": 18.41,
+      "n_pred_classes": 6,
+      "majority_baseline": 25.88,
+      "train_time_sec": 4.6
+    }
+  },
+  "ADA-USD": {
+    "status": "ok",
+    "n_train": 1285,
+    "n_test": 797,
+    "lightgbm": {
+      "acc": 25.72,
+      "dir_acc": 52.2,
+      "f1_macro": 16.63,
+      "n_pred_classes": 6,
+      "majority_baseline": 28.98,
+      "train_time_sec": 3.5
+    }
+  },
+  "DOGE-USD": {
+    "status": "ok",
+    "n_train": 1162,
+    "n_test": 788,
+    "lightgbm": {
+      "acc": 18.4,
+      "dir_acc": 50.25,
+      "f1_macro": 15.96,
+      "n_pred_classes": 6,
+      "majority_baseline": 29.31,
+      "train_time_sec": 3.4
+    }
+  },
+  "LTC-USD": {
+    "status": "ok",
+    "n_train": 1871,
+    "n_test": 706,
+    "lightgbm": {
+      "acc": 20.96,
+      "dir_acc": 48.58,
+      "f1_macro": 17.6,
+      "n_pred_classes": 6,
+      "majority_baseline": 24.79,
+      "train_time_sec": 7.0
+    }
+  },
+  "LINK-USD": {
+    "status": "ok",
+    "n_train": 1371,
+    "n_test": 810,
+    "lightgbm": {
+      "acc": 25.06,
+      "dir_acc": 49.26,
+      "f1_macro": 13.25,
+      "n_pred_classes": 6,
+      "majority_baseline": 31.73,
+      "train_time_sec": 3.7
+    }
+  },
+  "XLM-USD": {
+    "status": "ok",
+    "n_train": 1242,
+    "n_test": 730,
+    "lightgbm": {
+      "acc": 21.23,
+      "dir_acc": 52.47,
+      "f1_macro": 18.18,
+      "n_pred_classes": 6,
+      "majority_baseline": 23.01,
+      "train_time_sec": 3.5
+    }
+  },
+  "TRX-USD": {
+    "status": "ok",
+    "n_train": 1184,
+    "n_test": 492,
+    "lightgbm": {
+      "acc": 14.02,
+      "dir_acc": 56.5,
+      "f1_macro": 13.15,
+      "n_pred_classes": 6,
+      "majority_baseline": 31.3,
+      "train_time_sec": 5.3
+    }
+  },
+  "ETC-USD": {
+    "status": "ok",
+    "n_train": 1222,
+    "n_test": 752,
+    "lightgbm": {
+      "acc": 19.95,
+      "dir_acc": 50.8,
+      "f1_macro": 15.59,
+      "n_pred_classes": 6,
+      "majority_baseline": 25.8,
+      "train_time_sec": 4.0
+    }
+  },
+  "XMR-USD": {
+    "status": "ok",
+    "n_train": 1243,
+    "n_test": 615,
+    "lightgbm": {
+      "acc": 16.1,
+      "dir_acc": 48.46,
+      "f1_macro": 14.61,
+      "n_pred_classes": 6,
+      "majority_baseline": 22.28,
+      "train_time_sec": 3.3
+    }
+  },
+  "NEO-USD": {
+    "status": "ok",
+    "n_train": 1328,
+    "n_test": 804,
+    "lightgbm": {
+      "acc": 19.4,
+      "dir_acc": 46.14,
+      "f1_macro": 13.68,
+      "n_pred_classes": 6,
+      "majority_baseline": 29.98,
+      "train_time_sec": 6.4
+    }
+  },
+  "EOS-USD": {
+    "status": "ok",
+    "n_train": 1267,
+    "n_test": 796,
+    "lightgbm": {
+      "acc": 22.61,
+      "dir_acc": 52.01,
+      "f1_macro": 18.85,
+      "n_pred_classes": 6,
+      "majority_baseline": 30.28,
+      "train_time_sec": 3.7
+    }
+  },
+  "IOTA-USD": {
+    "status": "insufficient_data"
+  },
+  "pooled": {
+    "status": "ok",
+    "n_train": 18549,
+    "n_test": 10403,
+    "lightgbm": {
+      "acc": 24.79,
+      "dir_acc": 52.5,
+      "f1_macro": 17.62,
+      "n_pred_classes": 6,
+      "majority_baseline": 25.51,
+      "train_time_sec": 57.6
+    }
+  }
+}
