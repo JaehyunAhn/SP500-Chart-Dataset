@@ -42,9 +42,11 @@ Each chart image is a 20-trading-day candlestick chart rendered with [mplfinance
 - **MA5** (blue dotted) — 5-day moving average
 - **MA60** (red dashed) — 60-day moving average
 - **MA120** (green solid) — 120-day moving average
-- **Bollinger Bands** (grey dash-dot) — 20-day ± 2σ
+- **Bollinger Bands** (grey shaded area, α=0.15) — 20-day ± 2σ
 
 All axis labels and ticks are removed to focus on pure visual patterns.
+
+> All technical indicators are guaranteed to be visible in every image. The y-axis is automatically scaled to include all indicator values. Prices are percentage-normalized relative to the first closing price in each window (0% baseline), making visual patterns scale-invariant across stocks.
 
 ### Sample Images
 

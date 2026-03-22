@@ -167,19 +167,38 @@ def generate_images_for_stock_worker(args):
                 errors += 1
                 continue
 
+            for col in ['MA5', 'MA60', 'MA120', 'BB_upper', 'BB_lower']:
+                if col in wd.columns:
+                    wd[col] = wd[col].ffill().bfill()
+
+            # Percentage normalization: all prices relative to first Close
+            base_price = wd['Close'].iloc[0]
+            if base_price != 0 and not np.isnan(base_price):
+                for col in ['Open', 'High', 'Low', 'Close', 'MA5', 'MA60', 'MA120', 'BB_upper', 'BB_lower']:
+                    if col in wd.columns:
+                        wd[col] = (wd[col] / base_price - 1) * 100
+
+            indicator_cols = [c for c in ['MA5', 'MA60', 'MA120', 'BB_upper', 'BB_lower'] if c in wd.columns]
+            all_vals = pd.concat([wd['High'], wd['Low']] + [wd[c] for c in indicator_cols])
+            y_min, y_max = all_vals.min(), all_vals.max()
+            margin = (y_max - y_min) * 0.05
+            ylim = (y_min - margin, y_max + margin)
+
             apds = [
                 mpf.make_addplot(wd['MA5'], color='blue', width=2.5, linestyle='dotted'),
                 mpf.make_addplot(wd['MA60'], color='red', width=2.5, linestyle='--'),
                 mpf.make_addplot(wd['MA120'], color='green', width=2.5),
-                mpf.make_addplot(wd['BB_lower'], color='grey', width=1.5, linestyle='-.'),
-                mpf.make_addplot(wd['BB_upper'], color='grey', width=1.5, linestyle='-.'),
             ]
-            fig, _ = mpf.plot(
+            fig, axes = mpf.plot(
                 wd, type='candle', style='charles', volume=True,
                 addplot=apds, returnfig=True,
                 figsize=CONFIG['fig_size'],
-                tight_layout=True, axisoff=True
+                tight_layout=True, axisoff=True,
+                ylim=ylim
             )
+            ax_price = axes[0]
+            if 'BB_lower' in wd.columns and 'BB_upper' in wd.columns:
+                ax_price.fill_between(range(len(wd)), wd['BB_lower'].values, wd['BB_upper'].values, alpha=0.15, color='grey')
             fig.savefig(str(fpath), bbox_inches='tight', pad_inches=0,
                         dpi=CONFIG['fig_dpi'])
             plt.close(fig)
